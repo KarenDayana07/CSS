@@ -1,0 +1,17 @@
+/* Herencia: fuente y color base */
+body {
+  font-family: sans-serif;
+  color: #333;
+}
+
+/* Colores por zona */
+header nav ul li a { color: blue; }   /* menú principal */
+aside ul li a      { color: purple; } /* barra lateral */
+footer ul li a     { color: orange; } /* pie de página */
+
+/* Conflicto: ID (100) gana a clase (10) */
+.btn-comprar   { color: green; }
+#btn-destacado { color: red; }
+
+/* Refactor: sin #id, solo clase */
+.btn-destacado { color: red; }
