@@ -1,8 +1,52 @@
+* {
+  box-sizing: border-box;
+}
 /* Herencia: fuente y color base */
 body {
   font-family: sans-serif;
   color: #333;
 }
+
+header {
+  background-color: #f48fb1;
+}
+
+main {
+  background-color: #e1bee7;
+  padding: 10px;
+}
+
+aside {
+  background-color: #80deea;
+  padding: 10px;
+}
+
+footer {
+  background-color: #e0f2f1;
+  padding: 10px;
+}
+
+article {
+  display: inline-block;
+  padding: 20px; 
+  margin: 15px;
+  width: 45%;
+  border: 2px solid #ba68c8;
+  border-radius: 5px;
+  vertical-align: top;
+  background-color: #f3e5f5;
+}
+
+header {  
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  background-image: 
+    linear-gradient(to right, rgba(241, 206, 231, 0.7), rgba(124, 86, 232, 0.4)), 
+    url('recursos/banner.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+
 
 /* Colores por zona */
 header nav ul li a { color: blue; }   /* menú principal */
