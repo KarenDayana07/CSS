@@ -17,11 +17,9 @@ Catálogo semántico con jerarquía CSS aplicada.
 
 ## Cálculo de especificidad
 
-| Selector                  | Puntos |
-|---------------------------|--------|
-| Etiqueta (`p`)            | 1      |
-| Clase (`.btn-comprar`)    | 10     |
-| ID (`#btn-destacado`)     | 100    |
+- Etiqueta = 1 punto
+- Clase = 10 puntos
+- ID = 100 puntos
 
 ## Conflicto ID vs Clase
 
