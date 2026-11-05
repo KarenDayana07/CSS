@@ -1,23 +1,27 @@
 :root {
   --color-principal: #f48fb1;
   --color-secundario: #e1bee7;
-  --color-terciario: #80deea;
+  --color-terciario: #b3e5fc;
   --color-extra: #f3e5f5;
   --color-fondo: #e0f2f1;
   --padding: 10px;
+  --fuente-principal: "Arial", sans-serif;
 }
 
 * {
   box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
 }
 /* Herencia: fuente y color base */
 body {
-  font-family: sans-serif;
+  font-family: var(--fuente-principal);
   color: #333;
 }
 
 header {
   background-color: var(--color-principal);
+  font-family: var(--fuente-principal);
 }
 
 main {
@@ -62,18 +66,21 @@ header {
 /* Colores por zona */
 header nav ul li a {
   color: blue;
-} /* menú principal */
+}
+
 aside ul li a {
   color: purple;
-} /* barra lateral */
+}
+
 footer ul li a {
   color: orange;
-} /* pie de página */
+}
 
 /* Conflicto: ID (100) gana a clase (10) */
 .btn-comprar {
   color: green;
 }
+
 #btn-destacado {
   color: red;
 }
