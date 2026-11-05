@@ -51,10 +51,10 @@ header {
   background-image:
     linear-gradient(
       to right,
-      rgba(241, 206, 231, 0.7),
-      rgba(124, 86, 232, 0.4)
+      rgba(237, 223, 233, 0.7),
+      rgba(175, 160, 216, 0.4)
     ),
-    url("recursos/banner.jpg");
+    url("recursos/banner.jpg  ");
   background-size: cover;
   background-position: center;
 }
