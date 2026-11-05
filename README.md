@@ -52,3 +52,18 @@ Usar variables de espaciado evita que el diseño se vea desordenado o desigual. 
 ### 3. Cómo previene colisiones visuales la centralización en `:root`
 
 Al centralizar los colores y medidas en `:root`, la hoja de estilos se vuelve mucho más limpia y predecible. Si el proyecto crece y hay cientos de líneas de código, no tendremos que pelear con colores repetidos que chocan entre sí. Si necesitamos cambiar el color del botón o el fondo, lo hacemos una sola vez en la variable maestra, evitando que un color quede huérfano y garantizando que toda la identidad visual se mantenga unificada.
+
+# Hallazgos: Pseudoclases y Pseudoelementos
+
+## 1. Diferencia funcional entre una pseudoclase y un pseudoelemento\*\*
+
+- **Pseudoclase (ej. `:hover`, `:focus`):** Se usa para **reaccionar a eventos**. No crea nada nuevo, solo le dice al navegador: _"Cuando el usuario pase el mouse (hover) o haga clic en la tecla Tab (focus), cambia el estilo de este elemento"_. Depende de la interacción del usuario.
+- **Pseudoelemento (ej. `::before`, `::after`):** Se usa para **inyectar contenido visual**. No depende de lo que haga el usuario, sino que el navegador dibuja un elemento nuevo (como un punto, un ícono o una etiqueta) que no está escrito en el HTML.
+
+## 2. Importancia técnica del `:focus` para la accesibilidad web\*\*
+
+El `:focus` es vital porque mucha gente (o personas con discapacidad visual) navega por internet usando el teclado (tecla Tab) en lugar del mouse. Si no aplicamos un estilo claro de `:focus`, el usuario no sabrá en qué enlace está parado y se perderá. Al ponerle un contorno de color llamativo, garantizamos que la página sea incluyente y fácil de usar para todos, cumpliendo con las normas de accesibilidad.
+
+## 3. ¿Por qué inyectar decoraciones con `::before`/`::after` en lugar de ensuciar el HTML?\*\*
+
+Porque mantener el HTML limpio es una regla de oro. Si queremos poner un punto (`•`) en un menú o una etiqueta de "¡Oferta!", y lo escribimos directo en el HTML, estaríamos llenando el código de etiquetas vacías (como `<span>`) que no aportan nada a la estructura. Al hacerlo desde CSS con `::before` o `::after`, separamos el contenido (HTML) del diseño (CSS). Si el día de mañana queremos quitar las viñetas o la etiqueta de oferta, solo borramos una línea en el CSS y el HTML queda intacto y limpio.
