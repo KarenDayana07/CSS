@@ -1,3 +1,12 @@
+:root {
+  --color-principal: #f48fb1;
+  --color-secundario: #e1bee7;
+  --color-terciario: #80deea;
+  --color-extra: #f3e5f5;
+  --color-fondo: #e0f2f1;
+  --padding: 10px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,54 +17,68 @@ body {
 }
 
 header {
-  background-color: #f48fb1;
+  background-color: var(--color-principal);
 }
 
 main {
-  background-color: #e1bee7;
-  padding: 10px;
+  background-color: var(--color-secundario);
+  padding: var(--padding);
 }
 
 aside {
-  background-color: #80deea;
-  padding: 10px;
+  background-color: var(--color-terciario);
+  padding: var(--padding);
 }
 
 footer {
-  background-color: #e0f2f1;
-  padding: 10px;
+  background-color: var(--color-fondo);
+  padding: var(--padding);
 }
 
 article {
   display: inline-block;
-  padding: 20px; 
+  padding: var(--padding);
   margin: 15px;
   width: 45%;
-  border: 2px solid #ba68c8;
+  border: 2px solid var(--color-principal);
   border-radius: 5px;
   vertical-align: top;
-  background-color: #f3e5f5;
+  background-color: var(--color-extra);
 }
 
-header {  
+header {
   background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
-  background-image: 
-    linear-gradient(to right, rgba(241, 206, 231, 0.7), rgba(124, 86, 232, 0.4)), 
-    url('recursos/banner.jpg');
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(241, 206, 231, 0.7),
+      rgba(124, 86, 232, 0.4)
+    ),
+    url("recursos/banner.jpg");
   background-size: cover;
   background-position: center;
 }
 
-
-
 /* Colores por zona */
-header nav ul li a { color: blue; }   /* menú principal */
-aside ul li a      { color: purple; } /* barra lateral */
-footer ul li a     { color: orange; } /* pie de página */
+header nav ul li a {
+  color: blue;
+} /* menú principal */
+aside ul li a {
+  color: purple;
+} /* barra lateral */
+footer ul li a {
+  color: orange;
+} /* pie de página */
 
 /* Conflicto: ID (100) gana a clase (10) */
-.btn-comprar   { color: green; }
-#btn-destacado { color: red; }
+.btn-comprar {
+  color: green;
+}
+#btn-destacado {
+  color: red;
+}
 
 /* Refactor: sin #id, solo clase */
-.btn-destacado { color: red; }
+.btn-destacado {
+  color: red;
+}
