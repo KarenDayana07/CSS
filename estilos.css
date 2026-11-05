@@ -1,11 +1,12 @@
 :root {
-  --color-principal: #f48fb1;
-  --color-secundario: #e1bee7;
-  --color-terciario: #b3e5fc;
-  --color-extra: #f3e5f5;
-  --color-fondo: #e0f2f1;
-  --padding: 10px;
+  --color-principal: #ffffff;
+  --color-secundario: #f7f0e1;
+  --color-terciario: #efece6;
+  --color-extra: #fafafa;
+  --color-fondo: #575757;
+  --color-bordes: #c5c5c5;
   --fuente-principal: "Arial", sans-serif;
+  --padding: 5px;
 }
 
 * {
@@ -13,15 +14,16 @@
   /* margin: 0;
   padding: 0; */
 }
-/* Herencia: fuente y color base */
+
 body {
   font-family: var(--fuente-principal);
-  color: #333;
+  color: var(--color-texto);
 }
 
 header {
   background-color: var(--color-principal);
   font-family: var(--fuente-principal);
+  padding: var(--padding);
 }
 
 main {
@@ -41,51 +43,45 @@ footer {
 
 article {
   display: inline-block;
-  padding: var(--padding);
+  padding: 10px;
   margin: 15px;
   width: 45%;
-  border: 2px solid var(--color-principal);
-  border-radius: 5px;
+  border: 1px solid var(--color-bordes);
+  border-radius: 8px;
   vertical-align: top;
   background-color: var(--color-extra);
 }
 
 header {
-  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
   background-image:
     linear-gradient(
       to right,
-      rgba(237, 223, 233, 0.7),
-      rgba(175, 160, 216, 0.4)
+      rgba(249, 246, 240, 0.8),
+      rgba(212, 196, 183, 0.5)
     ),
-    url("recursos/banner.jpg  ");
+    url("recursos/camisa.jpg");
   background-size: cover;
   background-position: center;
 }
 
-/* Colores por zona */
 header nav ul li a {
-  color: blue;
+  color: #333333;
 }
 
 aside ul li a {
-  color: purple;
+  color: #555555;
 }
 
 footer ul li a {
-  color: orange;
+  color: #d4c4b7;
 }
 
-/* Conflicto: ID (100) gana a clase (10) */
 .btn-comprar {
-  color: green;
-}
-
-#btn-destacado {
-  color: red;
-}
-
-/* Refactor: sin #id, solo clase */
-.btn-destacado {
-  color: red;
+  display: inline-block;
+  background-color: #ffffff;
+  color: #333333;
+  border: 2px solid #d4c4b7;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 15px;
 }
