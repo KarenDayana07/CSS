@@ -1,78 +1,98 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Momento 2 - Mi Tienda</title>
-    <!-- Fuente Poppins de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css" />
-  </head>
-  <body>
-    <!-- HEADER -->
-    <header class="header">
-      <!-- Marca (Logo + Título) -->
-      <a href="#" class="header__brand">
-        <!-- Aquí puedes poner tu propio logo cambiando el src -->
-        <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="Logo Mi Tienda" class="header__logo-img" />
-        <h1 class="header__title">Mi Tienda</h1>
-      </a>
-      
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item"><a href="#" class="nav__link">Inicio</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Productos</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Ofertas</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Nosotros</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    <!-- MAIN -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Momento 2 - Mi Tienda</title>
+  <!-- Fuente Poppins de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+
+<body class="app-layout">
+
+  <!-- ENCABEZADO -->
+  <header class="header">
+    <a href="#" class="header__brand">
+      <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="Logo Lino & Tierra"
+        class="header__logo-img" />
+      <h1 class="header__title">Lino & Tierra</h1>
+    </a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#" class="nav__link">Inicio</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Productos</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Ofertas</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Nosotros</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ENVOLTORIO CENTRAL -->
+  <div class="main-wrapper">
+
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="main">
       <section class="catalog">
+
+        <!-- TÍTULO ARRIBA DE TODO -->
         <h2 class="catalog__title">Productos Destacados</h2>
 
-        <!-- TARJETA 1 -->
-        <article class="card">
-          <img src="recursos/camisetas.png" alt="Camiseta" class="card__image" />
-          <h2 class="card__title">Camisetas</h2>
-          <p class="card__desc">Camisetas de algodón cómodas y frescas para el día a día.</p>
-          <p class="card__price">$50.000</p>
-          <a href="#" class="btn">Comprar</a>
-        </article>
+        <!-- ENVOLTORIO DE LA CUADRÍCULA DE PRODUCTOS -->
+        <div class="catalog">
 
-        <!-- TARJETA 2 (DESTACADA) -->
-        <article class="card card--destacada">
-          <img src="recursos/pantaloness.png" alt="Pantalón" class="card__image" />
-          <h2 class="card__title">Pantalón</h2>
-          <p class="card__desc">Jean de alta durabilidad con corte moderno.</p>
-          <p class="card__price">$120.000</p>
-          <a href="#" class="btn">Comprar</a>
-        </article>
+          <!-- TARJETA 1 -->
+          <article class="card">
+            <img src="recursos/camisa.png" alt="Camiseta" class="card__image" />
+            <h2 class="card__title">Camisetas</h2>
+            <p class="card__desc">Camisetas de algodón cómodas y frescas para el día a día.</p>
+            <div class="card__price-wrapper">
+              <p class="card__price">$50.000</p>
+            </div>
+            <a href="#" class="btn">Comprar</a>
+          </article>
 
-        <!-- TARJETA 3 -->
-        <article class="card">
-          <img src="recursos/papos.png" alt="Zapatillas" class="card__image" />
-          <h2 class="card__title">Zapatillas</h2>
-          <p class="card__desc">Zapatillas deportivas y elegantes para cualquier ocasión.</p>
-          <p class="card__price">$200.000</p>
-          <a href="#" class="btn">Comprar</a>
-        </article>
+          <!-- TARJETA 2 (DESTACADA) -->
+          <article class="card card--destacada">
+            <img src="recursos/pantalones.png" alt="Pantalón" class="card__image" />
+            <h2 class="card__title">Pantalón</h2>
+            <p class="card__desc">Jean de alta durabilidad con corte moderno.</p>
+            <div class="card__price-wrapper">
+              <p class="card__price">$120.000</p>
+            </div>
+            <a href="#" class="btn">Comprar</a>
+          </article>
 
-        <!-- TARJETA 4 -->
-        <article class="card">
-          <img src="recursos/gorrascolor.png" alt="Gorra" class="card__image" />
-          <h2 class="card__title">Gorras</h2>
-          <p class="card__desc">Gorras ajustables con diseño moderno y ligero.</p>
-          <p class="card__price">$35.000</p>
-          <a href="#" class="btn">Comprar</a>
-        </article>
+          <!-- TARJETA 3 -->
+          <article class="card">
+            <img src="recursos/zapatos.png" alt="Zapatillas" class="card__image" />
+            <h2 class="card__title">Zapatillas</h2>
+            <p class="card__desc">Zapatillas deportivas y elegantes para cualquier ocasión.</p>
+            <div class="card__price-wrapper">
+              <p class="card__price">$200.000</p>
+            </div>
+            <a href="#" class="btn">Comprar</a>
+          </article>
+
+          <!-- TARJETA 4 -->
+          <article class="card">
+            <img src="recursos/gorra.png" alt="Gorra" class="card__image" />
+            <h2 class="card__title">Gorras</h2>
+            <p class="card__desc">Gorras ajustables con diseño moderno y ligero.</p>
+            <div class="card__price-wrapper">
+              <p class="card__price">$35.000</p>
+            </div>
+            <a href="#" class="btn">Comprar</a>
+          </article>
+
+        </div> <!-- Cierre de catalog__grid -->
       </section>
     </main>
 
-    <!-- ASIDE -->
+    <!-- BARRA LATERAL -->
     <aside class="sidebar">
       <h2 class="sidebar__title">Categorías</h2>
       <ul class="sidebar__list">
@@ -91,15 +111,19 @@
       </ul>
     </aside>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <p class="footer__text">&copy; 2026 Mi Tienda. Todos los derechos reservados.</p>
-      <ul class="footer__list">
-        <li class="footer__item"><a href="#" class="footer__link">Facebook</a></li>
-        <li class="footer__item"><a href="#" class="footer__link">Instagram</a></li>
-        <li class="footer__item"><a href="#" class="footer__link">Twitter</a></li>
-        <li class="footer__item"><a href="#" class="footer__link">YouTube</a></li>
-      </ul>
-    </footer>
-  </body>
+  </div> <!-- Cierre del main-wrapper -->
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p class="footer__text">&copy; 2026 Lino & Tierra. Todos los derechos reservados.</p>
+    <ul class="footer__list">
+      <li class="footer__item"><a href="#" class="footer__link">Facebook</a></li>
+      <li class="footer__item"><a href="#" class="footer__link">Instagram</a></li>
+      <li class="footer__item"><a href="#" class="footer__link">Twitter</a></li>
+      <li class="footer__item"><a href="#" class="footer__link">YouTube</a></li>
+    </ul>
+  </footer>
+
+</body>
+
 </html>
