@@ -81,3 +81,14 @@ Porque evita que todo el equipo esté escribiendo en el mismo archivo gigante al
 
 **(3) ¿Cómo esta metodología evita la guerra de especificidad (Cascada) al mantener un peso plano?**
 Antes usábamos selectores anidados como `aside ul li a`, que hacen que el CSS sea un caos difícil de controlar. Con BEM, usamos una sola clase (como `.sidebar__link`). En CSS, una clase siempre pesa **10 puntos**. Al usar solo clases, todas tus reglas tienen exactamente el mismo peso. Esto significa que ninguna regla va a "pisar" a otra por accidente. Si quieres cambiar algo, simplemente usas el modificador y listo, sin necesidad de usar IDs (que pesan 100) ni el `!important`.
+
+# Hallazgos: Arquitectura Total con Flexbox
+
+**(1) ¿Por qué fue crucial aplicar `min-height: 100vh` y `flex-direction: column` al contenedor global para controlar el pie de página?**
+Fue crucial porque sin estas propiedades, si la página tenía poco contenido, el pie de página se subía a la mitad de la pantalla, dejando un espacio vacío horrible abajo. Al usar `100vh` (que significa el 100% del alto de la ventana) y ordenar los elementos en columna, le decimos al navegador que el cuerpo de la página ocupe toda la pantalla. Así, el `footer` siempre se ve obligado a irse hasta el fondo, sin importar cuántos productos haya.
+
+**(2) ¿Cómo la propiedad `gap` reemplazó el uso excesivo de márgenes laterales en los menús de navegación?**
+Antes, para separar los enlaces del menú, teníamos que ponerle `margin-right` a cada enlace y luego pelear para quitarle el margen al último (porque quedaba descuadrado). Con Flexbox y la propiedad `gap`, le decimos al contenedor: *"Separa a tus hijos por exactamente 16 píxeles"*. Es mucho más limpio, matemático y no ensucia el código con márgenes que luego causan problemas.
+
+**(3) ¿Cómo la unión de BEM, Custom Properties y Flexbox te permitió crear una tarjeta de producto resistente a diferentes longitudes de texto?**
+Fue la combinación perfecta: **BEM** nos dio nombres limpios (`.card`, `.card__desc`); las **Custom Properties** (`:root`) nos dejaron cambiar los espacios exactos (`--espaciado-medio`) para que todo respirara igual; y **Flexbox** fue la magia final. Al ponerle `display: flex; flex-direction: column; height: 100%;` a la tarjeta y `flex-grow: 1;` a la descripción, creamos un "resorte". Si una camiseta tiene un texto larguísimo y una gorra tiene un texto corto, la descripción se estira para rellenar el espacio, asegurando que el botón de "Comprar" de ambas tarjetas quede perfectamente alineado en la misma línea horizontal.
