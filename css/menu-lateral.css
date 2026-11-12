@@ -1,0 +1,40 @@
+.sidebar__title {
+  font-size: 18px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.sidebar__title:first-child {
+  margin-top: 0;
+}
+
+.sidebar__list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.sidebar__item {
+  margin-bottom: 5px;
+}
+
+.sidebar__link {
+  color: #555555;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: block;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+/* Quitamos el ✦ para que se vea más minimalista */
+.sidebar__link:hover {
+  background-color: var(--color-terciario);
+  color: var(--color-fondo);
+  padding-left: 18px; /* Pequeño efecto de movimiento */
+}
+
+.sidebar__link:focus {
+  outline: 2px solid var(--color-fondo);
+  outline-offset: 2px;
+}

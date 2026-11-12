@@ -67,3 +67,17 @@ El `:focus` es vital porque mucha gente (o personas con discapacidad visual) nav
 ## 3. ¿Por qué inyectar decoraciones con `::before`/`::after` en lugar de ensuciar el HTML?\*\*
 
 Porque mantener el HTML limpio es una regla de oro. Si queremos poner un punto (`•`) en un menú o una etiqueta de "¡Oferta!", y lo escribimos directo en el HTML, estaríamos llenando el código de etiquetas vacías (como `<span>`) que no aportan nada a la estructura. Al hacerlo desde CSS con `::before` o `::after`, separamos el contenido (HTML) del diseño (CSS). Si el día de mañana queremos quitar las viñetas o la etiqueta de oferta, solo borramos una línea en el CSS y el HTML queda intacto y limpio.
+
+# Hallazgos: Arquitectura BEM y Modularidad
+
+**(1) ¿Qué significa la sigla BEM y cómo se escribe visualmente?**
+BEM significa **Bloque, Elemento y Modificador**. Es una forma de nombrar las clases para que cualquiera entienda qué hace cada parte del código:
+- **Bloque:** Es el componente principal e independiente. Se escribe con una sola palabra (ej. `.card`).
+- **Elemento:** Es una parte que vive dentro del bloque y depende de él. Se escribe con doble guion bajo (ej. `.card__title` o `.card__image`).
+- **Modificador:** Es una variación o cambio de estado del bloque o elemento. Se escribe con doble guion medio (ej. `.card--destacada`).
+
+**(2) ¿Por qué dividir el CSS en varios archivos facilita el trabajo colaborativo?**
+Porque evita que todo el equipo esté escribiendo en el mismo archivo gigante al mismo tiempo. Si un compañero se encarga de los botones y otro de las tarjetas, cada uno trabaja en su propio archivo (`botones.css` y `tarjeta.css`) sin riesgo de borrar el trabajo del otro. Al final, el archivo principal los une con `@import`. Esto hace que encontrar errores sea mucho más rápido y el proyecto se vuelva ordenado y modular.
+
+**(3) ¿Cómo esta metodología evita la guerra de especificidad (Cascada) al mantener un peso plano?**
+Antes usábamos selectores anidados como `aside ul li a`, que hacen que el CSS sea un caos difícil de controlar. Con BEM, usamos una sola clase (como `.sidebar__link`). En CSS, una clase siempre pesa **10 puntos**. Al usar solo clases, todas tus reglas tienen exactamente el mismo peso. Esto significa que ninguna regla va a "pisar" a otra por accidente. Si quieres cambiar algo, simplemente usas el modificador y listo, sin necesidad de usar IDs (que pesan 100) ni el `!important`.

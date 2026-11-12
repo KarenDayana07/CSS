@@ -1,0 +1,24 @@
+.btn {
+  display: inline-block;
+  background-color: var(--color-boton);
+  color: var(--color-principal);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: var(--fuente-principal);
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #555555; /* Se aclara un poco al pasar el mouse */
+  color: var(--color-principal);
+}
+
+.btn--secundario {
+  background-color: var(--color-bordes);
+  color: var(--color-fondo);
+}

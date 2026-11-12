@@ -1,185 +1,137 @@
+/* 1. IMPORTACIONES (Deben ir siempre arriba) */
+@import url('css/tarjeta.css');
+@import url('css/botones.css');
+@import url('css/menu-lateral.css');
+
+/* 2. Variables Globales */
 :root {
   --color-principal: #ffffff;
-  --color-secundario: #f7f0e1;
-  --color-terciario: #efece6;
-  --color-extra: #fafafa;
-  --color-fondo: #575757;
-  --color-bordes: #c5c5c5;
-  --fuente-principal: "Arial", sans-serif;
-  --padding: 5px;
-  --color-boton: #d4c4b7;
+  --color-secundario: #f9f9f9;
+  --color-terciario: #f1f1f1; 
+  --color-extra: #ffffff;
+  --color-fondo: #222222;
+  --color-bordes: #e0e0e0;
+  --fuente-principal: 'Poppins', sans-serif;
+  --padding: 20px;
+  --color-boton: #222222;
+  --sombra-tarjeta: 0 10px 20px rgba(0,0,0,0.05);
 }
 
 * {
   box-sizing: border-box;
-  /* margin: 0;
-  padding: 0; */
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: var(--fuente-principal);
-  color: var(--color-texto);
-}
-
-header {
-  background-color: var(--color-principal);
-  font-family: var(--fuente-principal);
-  padding: var(--padding);
-}
-
-main {
+  color: #333333; 
   background-color: var(--color-secundario);
-  padding: var(--padding);
+  
+  /* Layout Grid */
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-areas: 
+    "header header"
+    "main aside"
+    "footer footer";
+  min-height: 100vh;
 }
 
-aside {
-  background-color: var(--color-terciario);
-  padding: var(--padding);
+/* HEADER */
+.header {
+  grid-area: header;
+  background-color: var(--color-principal);
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
 }
 
-footer {
-  background-color: var(--color-fondo);
-  padding: var(--padding);
-}
-
-article {
-  display: inline-block;
-  padding: 10px;
-  margin: 15px;
-  width: 45%;
-  border: 1px solid var(--color-bordes);
-  border-radius: 8px;
-  vertical-align: top;
-  background-color: var(--color-extra);
-}
-
-header {
-  background-image:
-    linear-gradient(
-      to right,
-      rgba(249, 246, 240, 0.8),
-      rgba(212, 196, 183, 0.5)
-    ),
-    url("recursos/camisa.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-header nav ul li a {
-  color: #333333;
+/* Estilos de la Marca (Logo + Texto) */
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
+  color: inherit;
 }
 
-aside ul li a {
-  color: #555555;
+.header__logo-img {
+  height: 40px; /* Tamaño del logo */
+  width: auto;
 }
 
-footer ul li a {
-  color: #d4c4b7;
+.header__title {
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.btn-comprar {
-  display: inline-block;
-  background-color: #ffffff;
-  color: #333333;
-  border: 2px solid var(--color-boton);
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 15px;
+/* Navegación */
+.nav__list {
+  display: flex;
+  gap: 25px;
+  list-style: none;
 }
 
-.btn-comprar:hover {
-  background-color: var(--color-boton);
-  color: #ffffff;
+.nav__link { 
+  color: #333333; 
+  text-decoration: none; 
+  font-weight: 400;
+  transition: color 0.3s;
 }
 
-aside ul li a {
-  color: #555555;
-  text-decoration: none;
-  padding: 5px 10px;
-  display: inline-block;
-  transition: all 0.3s ease; /* Para que el cambio sea suave */
-  border-radius: 4px;
+.nav__link:hover {
+  color: #888;
 }
 
-aside ul li a {
-  color: #555555;
-  text-decoration: none;
-  padding: 5px 10px;
-  display: inline-block;
-  transition: all 0.3s ease; /* Para que el cambio sea suave */
-  border-radius: 4px;
+/* MAIN */
+.main {
+  grid-area: main;
+  padding: 30px 40px;
 }
 
-aside ul li a:hover {
+.catalog__title {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* ASIDE */
+.sidebar {
+  grid-area: aside;
+  background-color: var(--color-principal);
+  padding: 30px;
+  border-left: 1px solid var(--color-bordes);
+}
+
+/* FOOTER */
+.footer {
+  grid-area: footer;
   background-color: var(--color-fondo);
   color: var(--color-principal);
+  padding: 30px 40px;
+  text-align: center;
 }
 
-aside ul li a::before {
-  content: "✦ ";
-  font-weight: bold;
-  color: var(--color-fondo);
-}
-
-aside ul li a:focus {
-  outline: 2px solid var(--color-secundario);
-  outline-offset: 2px;
-  background-color: var(--color-bordes);
-}
-
-article {
-  display: inline-block;
-  padding: 20px;
-  margin: 15px;
-  width: 45%;
-  border: 1px solid var(--color-bordes);
-  border-radius: 8px;
-  vertical-align: top;
-  background-color: var(--color-extra);
-  position: relative;
-}
-
-.producto-oferta::after {
-  content: "¡Oferta!";
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: var(--color-fondo);
-  color: var(--color-principal);
-  padding: 5px 12px;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 20px;
-}
-
-.btn-comprar {
-  display: inline-block;
-  background-color: #ffffff;
-  color: #333333;
-  border: 2px solid var(--color-boton);
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 15px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-footer ul li a {
-  color: #d4c4b7;
-  font-weight: bold;
-}
-
-footer p {
-  font-weight: bold;
-}
-
-article img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 8px;
+.footer__text {
   margin-bottom: 15px;
-  display: block;
-  border: 1px solid var(--color-bordes);
+  font-weight: 300;
+}
+
+.footer__list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.footer__link { 
+  color: #bbbbbb; 
+  text-decoration: none; 
+  transition: color 0.3s;
+}
+
+.footer__link:hover {
+  color: var(--color-principal);
 }
