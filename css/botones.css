@@ -1,5 +1,6 @@
 .btn {
-  display: inline-block;
+  display: block;
+  width: 100%;
   background-color: var(--color-boton);
   color: var(--color-principal);
   border: none;
@@ -14,11 +15,5 @@
 }
 
 .btn:hover {
-  background-color: #555555; /* Se aclara un poco al pasar el mouse */
-  color: var(--color-principal);
-}
-
-.btn--secundario {
-  background-color: var(--color-bordes);
-  color: var(--color-fondo);
+  background-color: #8B653F;
 }

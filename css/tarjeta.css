@@ -1,62 +1,100 @@
+/* Contenedor general del catálogo */
 .catalog {
-  /* Grid para las tarjetas: se adaptan solas al tamaño de la pantalla */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
+  margin-top: var(--espaciado-medio);
 }
 
+/* Título principal de la sección */
+.catalog__title {
+  font-size: 22px;
+  color: var(--color-texto);
+  margin-bottom: var(--espaciado-medio);
+  width: 100%;
+}
+
+/* CONTENEDOR DE LAS TARJETAS (FLEXBOX) */
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  /* Permite que las tarjetas bajen a la siguiente fila */
+  gap: var(--espaciado-grande);
+}
+
+/* ESTILOS DE LA TARJETA */
 .card {
   background-color: var(--color-extra);
   border-radius: 12px;
-  padding: 15px;
-  box-shadow: var(--sombra-tarjeta);
+  padding: var(--espaciado-medio);
+  border: 1px solid var(--color-bordes);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  /* Flexbox interno para que el botón siempre quede abajo */
+
+  /* Micro-flexbox para que el botón siempre quede abajo */
   display: flex;
   flex-direction: column;
+  height: 100%;
+
+  /* Propiedades de Flexbox para el tamaño en la pantalla */
+  flex: 1 1 250px;
+  /* Crece, se encoge y tiene una base de 250px */
+  max-width: 300px;
+  /* Evita que se estiren demasiado si hay pocas tarjetas */
 }
 
-/* Efecto bonito cuando pasas el mouse por la tarjeta */
+/* Efecto al pasar el mouse por la tarjeta */
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
+/* Imagen del producto */
 .card__image {
   width: 100%;
   height: 200px;
-  object-fit: contain; /* Usamos 'contain' para que la ropa no se corte */
-  background-color: #f9f9f9; /* Fondo gris para las fotos con fondo transparente */
+  object-fit: cover;
+  background-color: var(--color-secundario);
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: var(--espaciado-medio);
 }
 
+/* Título del producto */
 .card__title {
   font-size: 18px;
-  margin-bottom: 8px;
+  margin-bottom: var(--espaciado-pequeno);
+  color: var(--color-texto);
 }
 
+/* Descripción del producto (El resorte invisible) */
 .card__desc {
   font-size: 13px;
-  color: #666;
-  margin-bottom: 15px;
-  flex-grow: 1; /* Empuja el precio y el botón hacia abajo */
+  color: var(--color-texto-suave);
+  margin-bottom: var(--espaciado-medio);
+  flex-grow: 1;
+  /* Empuja el precio y el botón hacia el fondo de la tarjeta */
 }
 
+/* Contenedor del precio */
+.card__price-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--espaciado-medio);
+}
+
+/* Texto del precio */
 .card__price {
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 15px;
+  color: var(--color-texto);
 }
 
+/* Etiqueta de oferta (Pseudoelemento ::after) */
 .card--destacada::after {
   content: "¡Oferta!";
   position: absolute;
   top: 15px;
   right: 15px;
-  background-color: var(--color-fondo);
+  background-color: var(--color-boton);
   color: var(--color-principal);
   padding: 5px 12px;
   font-size: 12px;

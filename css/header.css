@@ -1,0 +1,43 @@
+.header {
+  background-color: var(--color-fondo);
+  padding: var(--espaciado-medio) var(--espaciado-grande);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--espaciado-pequeno);
+  text-decoration: none;
+}
+
+.header__logo-img {
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.header__title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-principal);
+}
+
+.nav__list {
+  display: flex;
+  gap: var(--espaciado-medio);
+  list-style: none;
+}
+
+.nav__link {
+  color: var(--color-principal);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--color-boton);
+}

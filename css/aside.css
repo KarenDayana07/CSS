@@ -1,0 +1,10 @@
+/* Caja contenedora de la barra lateral */
+.sidebar {
+  background-color: var(--color-terciario);
+  padding: var(--espaciado-grande);
+  width: 280px;
+  border-left: 1px solid var(--color-bordes);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaciado-grande);
+}

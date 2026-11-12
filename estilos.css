@@ -1,20 +1,27 @@
-/* 1. IMPORTACIONES (Deben ir siempre arriba) */
+/* 1. IMPORTACIONES */
+@import url('css/header.css');
+@import url('css/aside.css');
+@import url('css/menu-lateral.css');
+@import url('css/footer.css');
 @import url('css/tarjeta.css');
 @import url('css/botones.css');
-@import url('css/menu-lateral.css');
 
-/* 2. Variables Globales */
+/* 2. VARIABLES */
 :root {
-  --color-principal: #ffffff;
-  --color-secundario: #f9f9f9;
-  --color-terciario: #f1f1f1; 
-  --color-extra: #ffffff;
-  --color-fondo: #222222;
-  --color-bordes: #e0e0e0;
+  --color-principal: #FFFFFF;
+  --color-secundario: #FAF8F5;
+  --color-terciario: #F0EBE1;
+  --color-extra: #FFFFFF;
+  --color-fondo: #2C2C2C;
+  --color-bordes: #E6E0D4;
+  --color-boton: #A67C52;
+  --color-texto: #222222;
+  --color-texto-suave: #666666;
+
   --fuente-principal: 'Poppins', sans-serif;
-  --padding: 20px;
-  --color-boton: #222222;
-  --sombra-tarjeta: 0 10px 20px rgba(0,0,0,0.05);
+  --espaciado-pequeno: 8px;
+  --espaciado-medio: 16px;
+  --espaciado-grande: 24px;
 }
 
 * {
@@ -23,115 +30,25 @@
   padding: 0;
 }
 
-body {
+/* 3. MACRO-ARQUITECTURA (El Layout Global) */
+body.app-layout {
   font-family: var(--fuente-principal);
-  color: #333333; 
+  color: var(--color-texto);
   background-color: var(--color-secundario);
-  
-  /* Layout Grid */
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  grid-template-areas: 
-    "header header"
-    "main aside"
-    "footer footer";
+
+  /* Flexbox para toda la página */
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-/* HEADER */
-.header {
-  grid-area: header;
-  background-color: var(--color-principal);
-  padding: 15px 40px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  display: flex; 
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Estilos de la Marca (Logo + Texto) */
-.header__brand {
+.main-wrapper {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: inherit;
+  flex: 1;
 }
 
-.header__logo-img {
-  height: 40px; /* Tamaño del logo */
-  width: auto;
-}
-
-.header__title {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-/* Navegación */
-.nav__list {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-}
-
-.nav__link { 
-  color: #333333; 
-  text-decoration: none; 
-  font-weight: 400;
-  transition: color 0.3s;
-}
-
-.nav__link:hover {
-  color: #888;
-}
-
-/* MAIN */
 .main {
-  grid-area: main;
-  padding: 30px 40px;
-}
-
-.catalog__title {
-  margin-bottom: 20px;
-  font-size: 22px;
-}
-
-/* ASIDE */
-.sidebar {
-  grid-area: aside;
-  background-color: var(--color-principal);
-  padding: 30px;
-  border-left: 1px solid var(--color-bordes);
-}
-
-/* FOOTER */
-.footer {
-  grid-area: footer;
-  background-color: var(--color-fondo);
-  color: var(--color-principal);
-  padding: 30px 40px;
-  text-align: center;
-}
-
-.footer__text {
-  margin-bottom: 15px;
-  font-weight: 300;
-}
-
-.footer__list {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  list-style: none;
-}
-
-.footer__link { 
-  color: #bbbbbb; 
-  text-decoration: none; 
-  transition: color 0.3s;
-}
-
-.footer__link:hover {
-  color: var(--color-principal);
+  flex: 1;
+  padding: var(--espaciado-grande);
+  background-color: var(--color-secundario);
 }
